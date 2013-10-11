@@ -30,10 +30,9 @@ class Auth extends Client
      * @param string $key          the application's key
      * @param string $secret       the application's secret
      * @param string $redirect     the application's redirect uri
-     * @param string $responseType [optional] response type you want
      * @return void
      */
-    public function __construct($key, $secret, $redirect, $responseType = self::CODE)
+    public function __construct($key, $secret, $redirect)
     {
         Argument::i()
                 ->test(1, 'string')
@@ -41,8 +40,31 @@ class Auth extends Client
                 ->test(3, 'url')
                 ->test(4, 'string');
 
-        $this->responseType = $responseType;
-
         parent::__construct($key, $secret, $redirect, self::REQUEST_URL, self::ACCESS_URL);
+    }
+    
+    /**
+     * Sets the response type authentication.
+     * Current response types are Client::CODE and Client::TOKEN.
+     * 
+     * @param string $responseType
+     * @return \Eden\Instagram\Auth
+     */
+    public function setResponseType($responseType)
+    {
+        Argument::i()->test(1, 'string');
+        
+        $this->responseType = $responseType;
+        
+        return $this;
+    }
+    
+    /**
+     * Gets the response type.
+     * 
+     * @return string
+     */
+    public function getResponseType() {
+        return $this->responseType;
     }
 }
