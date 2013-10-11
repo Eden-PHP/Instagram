@@ -1,7 +1,7 @@
 <?php //-->
 /*
  * This file is part of the Eden package.
- * (c) 2011-2012 Openovate Labs
+ * (c) 2013-2014 Openovate Labs
  *
  * Copyright and license information can be found at LICENSE.txt
  * distributed with this package.
@@ -88,7 +88,7 @@ class Location extends Base
      * @param float|string|null $lng            [optional] longitude of the center search coordinate. (if used, lat is required)
      * @param int|null          $distance       [optional] default is 1km (distance=1000), max distance is 5km
      * @param string|null       $foursquareV2Id [optional] returns a location mapped off of a foursquare v2 api location id.
-     * (if used, you are not required to use lat and lng)
+     *                                          (if used, you are not required to use lat and lng)
      * @return array
      */
     public function search(
