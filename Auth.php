@@ -37,8 +37,7 @@ class Auth extends Client
         Argument::i()
                 ->test(1, 'string')
                 ->test(2, 'string')
-                ->test(3, 'url')
-                ->test(4, 'string');
+                ->test(3, 'url');
 
         parent::__construct($key, $secret, $redirect, self::REQUEST_URL, self::ACCESS_URL);
     }

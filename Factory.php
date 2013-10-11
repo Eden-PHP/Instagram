@@ -9,8 +9,6 @@
 
 namespace Eden\Instagram;
 
-use Eden\Oauth\Oauth2\Client;
-
 /**
  * Instagram API factory. This is a factory class with
  * methods that will load up different Instagram classes.
@@ -29,18 +27,16 @@ class Factory extends Base
      * @param string $key          the application's key
      * @param string $secret       the application's secret
      * @param string $redirect     the application's redirect uri
-     * @param string $responseType [optional] response type you want
      * @return \Eden\Instagram\Auth
      */
-    public function auth($key, $secret, $redirect, $responseType = Client::CODE)
+    public function auth($key, $secret, $redirect)
     {
         Argument::i()
                 ->test(1, 'string')
                 ->test(2, 'string')
-                ->test(3, 'url')
-                ->test(4, 'string');
+                ->test(3, 'url');
 
-        return Auth::i($key, $secret, $redirect, $responseType);
+        return Auth::i($key, $secret, $redirect);
     }
 
     /**
