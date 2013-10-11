@@ -41,29 +41,4 @@ class Auth extends Client
 
         parent::__construct($key, $secret, $redirect, self::REQUEST_URL, self::ACCESS_URL);
     }
-    
-    /**
-     * Sets the response type authentication.
-     * Current response types are Client::CODE and Client::TOKEN.
-     * 
-     * @param string $responseType
-     * @return \Eden\Instagram\Auth
-     */
-    public function setResponseType($responseType)
-    {
-        Argument::i()->test(1, 'string');
-        
-        $this->responseType = $responseType;
-        
-        return $this;
-    }
-    
-    /**
-     * Gets the response type.
-     * 
-     * @return string
-     */
-    public function getResponseType() {
-        return $this->responseType;
-    }
 }
